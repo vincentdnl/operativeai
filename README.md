@@ -1,3 +1,5 @@
+![operativeai-splash](https://github.com/vincentdnl/operativeai/assets/6394786/7234931f-372a-464e-90c0-0bea478f547e)
+
 # OperativeAI
 
 Private search with RAG on a local LLM.
