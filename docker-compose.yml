@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  operativeai-app:
+    extends:
+      file: ./app/docker-compose.yml
+      service: operativeai-app
+
+  operativeai-api:
+    extends:
+      file: ./api/docker-compose.yml
+      service: operativeai-api
+
+  chromadb:
+    extends:
+      file: ./api/docker-compose.yml
+      service: chromadb
