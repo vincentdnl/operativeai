@@ -56,7 +56,7 @@ app.post("/api/chat", async function (req, res) {
     )
     await enrichPipeline.ragService.ragDb.init()
     const enrichedMessages = await enrichPipeline.process(body.messages)
-    // const enrichedMessages = body.messages
+
     console.info("------------ FINAL PROMPT ------------")
     console.info(enrichedMessages?.[enrichedMessages.length - 1]?.content)
     console.info("---------- END FINAL PROMPT ----------")
@@ -71,7 +71,6 @@ app.post("/api/chat", async function (req, res) {
     const buffer = Buffer.from(payloadString, "utf-8")
     const contentLength = Buffer.byteLength(buffer)
 
-    console.log("AAAAA", JSON.stringify(newPayload))
     const response = await fetch(`${environment.OLLAMA_BASE_URL}/api/chat`, {
         method: "POST",
         //@ts-ignore
@@ -109,11 +108,11 @@ app.post("/v1/chat/completions", async function (req, res) {
     const response = await fetch(`${environment.OLLAMA_BASE_URL}/v1/chat/completions`, {
         method: "POST",
         //@ts-ignore
-        headers: {
+        headers: omit({
             ...req.headers,
             "Content-Type": "application/json",
             "content-length": contentLength
-        },
+        }, ["referer", "origin"]),
         body: JSON.stringify(newPayload)
     })
 
