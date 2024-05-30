@@ -2,7 +2,10 @@ import {z} from "zod"
 import "dotenv/config"
 
 const EnvSchema = z.object({
+    API_PORT: z.coerce.number(),
     OLLAMA_BASE_URL: z.string(),
 })
 
-export default EnvSchema.parse(process.env)
+const environment = EnvSchema.parse(process.env)
+
+export default environment

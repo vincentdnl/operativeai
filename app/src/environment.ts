@@ -4,6 +4,6 @@ const Environment = z.object({
     VITE_SERVICE_URL: z.string()
 })
 
-const env = Environment.parse(import.meta.env)
+const environment = Environment.parse(import.meta.env)
 
-export default env
+export default environment

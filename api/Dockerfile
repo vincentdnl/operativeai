@@ -21,7 +21,8 @@ RUN pnpm install --frozen-lockfile
 #COPY . . # handled through "volumes" in docker-compose
 
 # Expose the port your app runs on
-EXPOSE 4000
+ARG API_PORT
+EXPOSE ${API_PORT}
 
 # Command to run your app using ts-node
 CMD ["pnpm", "run", "dev"]

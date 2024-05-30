@@ -5,11 +5,23 @@ services:
     extends:
       file: ./app/docker-compose.yml
       service: operativeai-app
+    environment:
+      - VITE_SERVICE_URL=${API_HOST}:${API_PORT}
+      - APP_PORT=${APP_PORT}
+    env_file:
+      - .env.default
+      - .env
 
   operativeai-api:
     extends:
       file: ./api/docker-compose.yml
       service: operativeai-api
+    environment:
+      - OLLAMA_BASE_URL=${OLLAMA_HOST}:${OLLAMA_PORT}
+      - API_PORT=${API_PORT}
+    env_file:
+      - .env.default
+      - .env
 
   chromadb:
     extends:

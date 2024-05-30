@@ -19,7 +19,8 @@ RUN pnpm install --frozen-lockfile
 COPY . ./
 
 # Expose the port your app runs on
-EXPOSE 3000
+ARG APP_PORT
+EXPOSE ${APP_PORT}
 
 # Command to run your app using ts-node
 CMD ["pnpm", "run", "dev", "--", "--host"]
