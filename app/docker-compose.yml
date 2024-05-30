@@ -11,3 +11,4 @@ services:
       - ./src:/usr/src/app/src
       - ./.env:/usr/src/app/.env
       - ./tsconfig.json:/usr/src/app/tsconfig.json
+      - ./index.html:/usr/src/app/index.html

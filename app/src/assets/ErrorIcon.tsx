@@ -1,6 +1,6 @@
 export const ErrorIcon = () => {
     return (
-        <div className={"fill-red-600"} dangerouslySetInnerHTML={{__html: `<svg width="100%" height="100%" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <span className={"fill-red-600"} dangerouslySetInnerHTML={{__html: `<svg width="100%" height="100%" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
     
     <title>cross-circle</title>
     <desc>Created with Sketch Beta.</desc>
