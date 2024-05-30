@@ -11,10 +11,12 @@ import {ellipsis, getLatestPrompt} from "@/helpers"
 import {SearchResultWithError} from "@/service/scrape/types"
 
 export class Pipeline {
+    private model
     public ragService
     public richInterfaceService
 
-    constructor(ragService: RagService, richInterfaceService: RichInterface) {
+    constructor(model: string, ragService: RagService, richInterfaceService: RichInterface) {
+        this.model = model
         this.ragService = ragService
         this.richInterfaceService = richInterfaceService
     }
@@ -29,7 +31,7 @@ export class Pipeline {
             message: "Searching the web...",
             status: "progress"
         })
-        const searchTerms = await transformPromptToSearchQuery(mergedPrompts)
+        const searchTerms = await transformPromptToSearchQuery(this.model, mergedPrompts)
         const searchResults = await duckDuckGoSearch(searchTerms)
         if (searchResults.length > 0) {
             await this.richInterfaceService.write({

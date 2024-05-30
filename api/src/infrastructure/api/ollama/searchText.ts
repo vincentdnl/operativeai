@@ -35,14 +35,14 @@ prompt: Help me study vocabulary: write a sentence for me to fill in the blank, 
 expected: study vocabulary sentence fill blank
 `
 
-export const searchText = async (prompt: string) => {
+export const searchText = async (model: string, prompt: string) => {
     const response = await fetch(`${environment.OLLAMA_BASE_URL}/api/chat`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            model: "llama3",
+            model,
             stream: false,
             options: {
                 temperature: 0,

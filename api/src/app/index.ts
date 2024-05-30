@@ -51,6 +51,7 @@ app.post("/api/chat", async function (req, res) {
     // ---
 
     const enrichPipeline = new Pipeline(
+        body.model,
         new RagService(new Chroma("web_content", "http://host.docker.internal:8000")),
         new RichInterface(res)
     )
