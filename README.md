@@ -25,3 +25,7 @@ docker exec ollama ollama pull phi3
 ```
 
 Go to: http://host.docker.internal:3000/
+
+Your containers should look like this:
+
+![operativeai-containers](https://github.com/vincentdnl/operativeai/assets/6394786/d37ee12d-e75b-49aa-a3ea-ee93b88e495a)
