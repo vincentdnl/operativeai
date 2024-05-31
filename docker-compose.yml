@@ -9,8 +9,10 @@ services:
       - VITE_SERVICE_URL=${API_HOST}:${API_PORT}
       - APP_PORT=${APP_PORT}
     env_file:
-      - .env.default
-      - .env
+      - path: .env.default
+        required: true
+      - path: .env
+        required: false
 
   operativeai-api:
     extends:
@@ -20,8 +22,10 @@ services:
       - OLLAMA_BASE_URL=${OLLAMA_HOST}:${OLLAMA_PORT}
       - API_PORT=${API_PORT}
     env_file:
-      - .env.default
-      - .env
+      - path: .env.default
+        required: true
+      - path: .env
+        required: false
 
   chromadb:
     extends:
