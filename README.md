@@ -28,8 +28,6 @@ OperativeAI is built using the following tools:
 - DuckDuckGo (for search)
 - Puppeteer (for scraping)
 
-Why? Because this is the stack I'm most comfortable with!
-
 ## Getting started
 
 ### Requirements
