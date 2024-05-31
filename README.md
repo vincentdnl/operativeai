@@ -38,7 +38,7 @@ You can follow these instructions to install Docker: https://docs.docker.com/eng
 
 ### Ollama
 
-This project uses Ollama for the local models. To get Ollama running, run the following command:
+This project uses Ollama for the local models. To get Ollama running (with GPUs), run the following command:
 
 ```bash
 docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
@@ -52,6 +52,8 @@ Then pull some models:
 docker exec ollama ollama pull llama3
 docker exec ollama ollama pull phi3
 ```
+
+Check here for more options on how to run Ollama with docker on different platforms: https://ollama.com/blog/ollama-is-now-available-as-an-official-docker-image
 
 ### Starting the project
 Start the project with docker-compose:
