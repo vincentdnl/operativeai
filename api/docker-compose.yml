@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  operativeai-api:
+    build: .
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./src:/usr/src/app/src
+      - ./.env:/usr/src/app/.env
+      - ./tsconfig.json:/usr/src/app/tsconfig.json
+  chromadb:
+    image: chromadb/chroma
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./.db/chromadb/data:/var/lib/chromadb/data
